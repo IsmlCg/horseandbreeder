@@ -1,32 +1,29 @@
+<script setup lang="ts">
+const nav = [
+  { label: "Home", to: "/" },
+  { label: "Premium profile", to: "/premium-profile" },
+];
+</script>
+
 <template>
-  <button
-    type="button"
-    class="rounded bg-indigo-600 px-2 py-1 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-  >
-    Button text
-  </button>
-  <button
-    type="button"
-    class="rounded bg-indigo-600 px-2 py-1 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-  >
-    Button text
-  </button>
-  <button
-    type="button"
-    class="rounded-md bg-indigo-600 px-2.5 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-  >
-    Button text
-  </button>
-  <button
-    type="button"
-    class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-  >
-    Button text
-  </button>
-  <button
-    type="button"
-    class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-  >
-    Button text
-  </button>
+  <div>
+    <div class="bg-gray-800 text-white p-4">
+      <nav class="flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <ul class="flex space-x-4">
+            <li v-for="item in nav" :key="item.to">
+              <NuxtLink
+                :to="item.to"
+                class="hover:text-gray-300 focus:text-gray-300"
+              >
+                {{ item.label }}
+              </NuxtLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <NuxtLoadingIndicator />
+    </div>
+    <NuxtPage />
+  </div>
 </template>
