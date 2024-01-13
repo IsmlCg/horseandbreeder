@@ -12,7 +12,7 @@
                 Contact Information
               </dt>
               <dd class="mt-1 text-base font-semibold leading-6 text-gray-900">
-                $10,560.00
+                $ 1.00
               </dd>
             </div>
             <div class="self-end pt-4">
@@ -20,26 +20,84 @@
               <dd
                 class="rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-600 ring-1 ring-inset ring-green-600/20"
               >
-                Paid
+                Email
               </dd>
             </div>
             <div
               class="mt-6 flex w-full flex-none gap-x-4 border-t border-gray-900/5 px-6 pt-6"
             >
+              <img
+                class="col-span-2 max-h-12 w-full object-contain lg:col-span-1"
+                src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg"
+                alt="Transistor"
+                width="158"
+                height="48"
+              />
+            </div>
+            <div
+              class="mt-6 flex w-full flex-none gap-x-4 border-gray-900/5 px-6 pt-6"
+            >
               <dt class="flex-none">
                 <span class="sr-only">Client</span>
-                <div class="h-6 w-5 text-gray-400" aria-hidden="true"></div>
+                <UserCircleIcon
+                  class="h-6 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
               </dt>
               <dd class="text-sm font-medium leading-6 text-gray-900">
                 Alex Curren
+              </dd>
+            </div>
+            <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
+              <dt class="flex-none">
+                <span class="sr-only">Due date</span>
+                <LocationMarkerIcon
+                  class="h-6 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
+              </dt>
+              <dd class="text-sm leading-6 text-gray-500">
+                <time datetime="2023-01-31">
+                  Ogonnelloe Scarriff County Clare, Ireland
+                </time>
+              </dd>
+            </div>
+            <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
+              <dt class="flex-none">
+                <span class="sr-only">Status</span>
+                <PhoneIcon class="h-6 w-5 text-gray-400" aria-hidden="true" />
+              </dt>
+              <dd class="text-sm leading-6 text-gray-500">+353.87.827.4831</dd>
+            </div>
+
+            <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
+              <dt class="flex-none">
+                <span class="sr-only">Status</span>
+                <MailIcon class="h-6 w-5 text-gray-400" aria-hidden="true" />
+              </dt>
+              <dd class="text-sm leading-6 text-gray-500">
+                tom@morningside-stud.com
+              </dd>
+            </div>
+
+            <div class="mt-4 flex w-full flex-none gap-x-4 px-6">
+              <dt class="flex-none">
+                <span class="sr-only">Status</span>
+                <ExternalLinkIcon
+                  class="h-6 w-5 text-gray-400"
+                  aria-hidden="true"
+                />
+              </dt>
+              <dd class="text-sm leading-6 text-gray-500">
+                http://www.morningside-stud.com
               </dd>
             </div>
             <!-- Additional details... -->
           </dl>
           <div class="mt-6 border-t border-gray-900/5 px-6 pt-6">
             <a href="#" class="text-sm font-semibold leading-6 text-gray-900"
-              >Download receipt <span aria-hidden="true">&rarr;</span></a
-            >
+              >Show on Google Map <span aria-hidden="true">&rarr;</span>
+            </a>
           </div>
         </div>
       </div>
@@ -77,24 +135,16 @@
             <h3 class="mt-4 text-sm text-gray-500">
               <a :href="order.href">
                 <span class="absolute inset-0" />
-                {{ order.productName }}
+                ABC Landliebe (1994)
               </a>
             </h3>
             <p class="mt-1 text-lg font-medium">
-              <span v-if="order.status === 'delivered'" class="text-gray-900"
-                >Delivered on
-                <time :datetime="order.datetime">{{ order.date }}</time></span
-              >
-              <span
-                v-else-if="order.status === 'out-for-delivery'"
-                class="text-indigo-600"
-                >Out for delivery</span
-              >
-              <span
-                v-else-if="order.status === 'cancelled'"
-                class="text-gray-500"
-                >Cancelled</span
-              >
+              <span v-if="order.status === 'delivered1'" class="text-gray-900">
+                ABC Landliebe (
+                <time :datetime="order.datetime">{{ order.date }}</time>
+                )
+              </span>
+              <span class="text-gray-500">EKSTEINE x CONDIOS x ORLANDO</span>
             </p>
           </div>
         </dl>
@@ -104,6 +154,13 @@
 </template>
 
 <script setup>
+import {
+  UserCircleIcon,
+  LocationMarkerIcon,
+  PhoneIcon,
+  MailIcon,
+  ExternalLinkIcon,
+} from "@heroicons/vue/solid";
 const orders = [
   {
     id: 3,
