@@ -1,35 +1,31 @@
+
+<script setup>
+import { ref } from "vue";
+
+const count = ref(1);
+const { data: events, refresh } = await useFetch("/api/events", {
+  method: "POST",
+  params: { id: count },
+  transform: (_events) => JSON.parse(_events.body),
+});
+const increment = () => {
+  count.value++;
+  refresh();
+};
+</script>
+
+
 <template>
   <div>
     <h1>Data from API</h1>
+    <img src="/statis/images/horse.jpg" alt="Image 1" />
+    <p>Count: {{ count }}</p>
+    <button @click="increment">Increment</button>
     <ul>
       <li v-for="event in events" :key="event.id">{{ event.body }}</li>
     </ul>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      events: [],
-    };
-  },
-  async mounted() {
-    try {
-      const response = await $fetch("/api/events");
-      // console.log("API Response:", response);
 
-      // Check if the response has a 'data' property
-      if (response.status == 200) {
-        // Assuming response.data is a JSON string
-        const parsedData = JSON.parse(response.body);
-        this.events = parsedData;
-      } else {
-        console.error("API response is missing the 'data' property:", response);
-      }
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  },
-};
-</script>
+

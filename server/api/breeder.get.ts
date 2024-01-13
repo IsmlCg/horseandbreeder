@@ -2,7 +2,12 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 export default async function ( ) {
     try {
-      const apiResponse = await prisma.events.findMany();
+      const apiResponse = await await prisma.breeder.findMany({
+        where: {
+          id: 3,
+        },
+      });
+      
       return {
         status: 200,
         body: JSON.stringify(apiResponse),
