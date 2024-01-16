@@ -23,7 +23,7 @@
     "@headlessui/vue": "^1.7.17",
     "@heroicons/vue": "v1",
     "@nuxt/content": "^2.10.0",
-    "@prisma/client": "^5.8.0",
+    "@prisma/client": "^5.8.1",
     "some-library": "^1.0.0"
   }
 }

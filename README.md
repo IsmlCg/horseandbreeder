@@ -73,18 +73,4 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
-# isntall
-    npx nuxi init .
-    yarn add -D @nuxtjs/tailwindcss
 
-    yarn add @prisma/cli @prisma/client
-    npx prisma init
-    npx prisma generate
-    yarn global add prisma
-    yarn add @prisma/client
-
-
-
-    git remote add origin https://github.com/IsmlCg/horseandbreeder.git
-    git branch -M main
-    git push -u origin main

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   },
   css:["~/assets/css/main.css"],
   serverMiddleware: [
-        '~/api/index.js'
+        '~/server/api/**.ts'
       ],
   modules: ['@nuxt/content','@nuxtjs/tailwindcss'],
   postcss:{
