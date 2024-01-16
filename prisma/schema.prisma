@@ -21,22 +21,30 @@ model events {
   body  String
 }
 
+// use hbtest;
+// SELECT * FROM storehorse JOIN
+// breeder ON storehorse.breederid =
+// breeder.id WHERE breeder.id = 14;
+// SELECT hprse_id, name,  birthyear FROM storehorse limit 6
+model storehorse {
+  horse_id  Int      @id @default(autoincrement())
+  name      String?
+  birthyear Int
+  breederid Int
+  breeder   breeder? @relation(fields: [breederid], references: [id])
+}
+
 // SELECT id, contactfname, contactlname,
 // addr1, addr2, addr3, addr4, tel, email,
 // website, mapref FROM hbtest.breeder where id = 3;
 model breeder {
-  id          Int    @id @default(autoincrement())
-  breedername String
-  addr1       String
-  tel         String
-  email       String
-  website     String
-  mapref      String
-}
-
-// SELECT hprse_id, name,  birthyear FROM storehorse limit 6
-model storehorse {
-  horse_id  Int    @id @default(autoincrement())
-  name      String
-  birthyear Int
+  id          Int          @id @default(autoincrement())
+  breedername String?
+  addr1       String?
+  tel         String?
+  email       String?
+  website     String?
+  mapref      String?
+  logo        String?
+  storehorses storehorse[]
 }

@@ -8,15 +8,18 @@ export default defineEventHandler(async (event) => {
     // @ts-ignore1
     const query = getQuery(event);
     const apiResponse = await prisma.storehorse.findMany({
-      skip: Number(query.offset), // Skip the first 9 rows (positions 1 to 5)
-      take: Number(query.limit), // Take the next 6 rows (positions 6 to 10)
+      select: {
+        horse_id: true,
+        name: true,
+        birthyear: true,
+        breeder: true,
+      },
       where: {
-        birthyear: {
-          lt: Number(query.id),
-        },
+        breederid: Number(query.id),
       },
     });
-    // res.status(200).json({ message: 'Post request successful', data: apiResponse });
+    //   skip: Number(query.offset), // Skip the first 9 rows (positions 1 to 5)
+    //   take: Number(query.limit), // Take the next 6 rows (positions 6 to 10)
     return {
       status: 200,
       body: JSON.stringify(apiResponse),

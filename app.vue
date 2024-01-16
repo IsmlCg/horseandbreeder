@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const nav = [
   { label: "Home", to: "/" },
-  { label: "Premium profile", to: "/premium-profile" },
+  { label: "Premium profile", to: "/premium-profile/10" },
 ];
 </script>
 
